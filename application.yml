@@ -1,0 +1,119 @@
+lavalink:
+    plugins:
+        - dependency: dev.lavalink.youtube:youtube-plugin:c358ae412eeae61f87b6f99acfa57e8b91cc9218
+          snapshot: true
+        - dependency: com.github.DEVenur.BaldMan-LavaSrc:baldman-plugin:8eb1d98df3
+          repository: https://jitpack.io
+          snapshot: true
+        - dependency: dev.schlaubi.lyrics:lavalink:2.5.0
+          repository: https://maven.lavalink.dev/releases
+          snapshot: false
+        - dependency: com.github.topi314.lavasearch:lavasearch-plugin:1ad3951
+          snapshot: true
+    server:
+        bufferDurationMs: 400
+        filters:
+            channelMix: true
+            distortion: true
+            equalizer: true
+            karaoke: true
+            lowPass: true
+            rotation: true
+            timescale: true
+            tremolo: true
+            vibrato: true
+            volume: true
+        frameBufferDurationMs: 5000
+        gc-warnings: true
+        opusEncodingQuality: 10
+        password: brasilpokedrink
+        playerUpdateInterval: 5
+        ratelimit:
+            retryLimit: 2
+            searchTriggersFail: true
+            strategy: LoadBalance
+        resamplingQuality: LOW
+        soundcloudSearchEnabled: true
+        sources:
+            bandcamp: true
+            http: true
+            local: false
+            nico: true
+            soundcloud: true
+            twitch: true
+            vimeo: true
+            youtube: false
+        trackStuckThresholdMs: 10000
+        useSeekGhosting: true
+        youtubePlaylistLoadLimit: 6
+        youtubeSearchEnabled: true
+logging:
+    file:
+        path: ./.logs/lavalink/
+    level:
+        lavalink: INFO
+        root: INFO
+    logback:
+        rollingpolicy:
+            max-file-size: 3MB
+            max-history: 30
+metrics:
+    prometheus:
+        enabled: false
+        endpoint: /metrics
+plugins:
+    dunctebot:
+        sources:
+            clypit: true
+            getyarn: true
+            mixcloud: true
+            ocremix: true
+            pornhub: false
+            reddit: true
+            soundgasm: true
+            tiktok: true
+            tts: true
+        ttsLanguage: pt-BR
+    jiosaavn:
+        apiURL: https://saavn.dev/api
+    lavasrc:
+        applemusic:
+            albumLoadLimit: 6
+            countryCode: BR
+            playlistLoadLimit: 6
+        deezer:
+            masterDecryptionKey: ""
+        providers:
+            - dzisrc:%ISRC%
+            - dzsearch:%QUERY%
+            - bcsearch:%QUERY%
+            - scsearch:%QUERY%
+        sources:
+            applemusic: true
+            deezer: true
+            flowerytts: false
+            spotify: true
+            tidal: true
+            yandexmusic: false
+            youtube: false
+        spotify:
+            albumLoadLimit: 3
+            clientId: 27cec247bce443d58c6bf56e12093b8a
+            clientSecret: b58ad41f74f74a8c84db59f4ecd9b037
+            countryCode: BR
+            playlistLoadLimit: 3
+request:
+    enabled: true
+    includeClientInfo: true
+    includeHeaders: false
+    includePayload: true
+    includeQueryString: true
+    maxPayloadLength: 10000
+sentry:
+    dsn: ""
+    environment: ""
+server:
+    address: 0.0.0.0
+    http2:
+        enabled: false
+    port: 2018
